@@ -151,11 +151,22 @@ public class Second_activity extends AppCompatActivity {
         }
         if(id==R.id.CopyText)
              copyToClipboard();
+        if(id==R.id.Share)
+            share();
 
 
 
         return super.onOptionsItemSelected(item);
     }
+
+    private void share() {
+        //implicit intent
+        Intent sharingIntent= new Intent(Intent.ACTION_SEND);
+        sharingIntent.setType("text/plain");
+        sharingIntent.putExtra(Intent.EXTRA_TEXT,mResult.getText().toString().trim());
+        startActivity(Intent.createChooser(sharingIntent,"Share Using"));
+    }
+
     private void copyToClipboard()
     {
         ClipboardManager cm = (ClipboardManager)this.getSystemService(Context.CLIPBOARD_SERVICE);

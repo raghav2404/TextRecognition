@@ -2,6 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
+        android:id="@+id/Share"
+        android:title="Share"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_share_black_24dp" />
+    <item
         android:id="@+id/CopyText"
         android:title="CopyText"
         app:showAsAction="always"
@@ -9,8 +14,9 @@
     <item
         android:id="@+id/AddImage"
         android:title="Add image"
-        app:showAsAction="always"
+        app:showAsAction="ifRoom"
         android:icon="@drawable/ic_photo_library_black_24dp" />
+
 
 
 
