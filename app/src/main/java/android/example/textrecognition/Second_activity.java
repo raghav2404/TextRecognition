@@ -7,6 +7,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+
+import android.os.Environment;
 import android.text.ClipboardManager;
 import android.Manifest;
 import android.content.ContentValues;
@@ -23,6 +25,8 @@ import android.util.SparseArray;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -36,8 +40,15 @@ import com.google.android.gms.ads.initialization.OnInitializationCompleteListene
 import com.google.android.gms.vision.Frame;
 import com.google.android.gms.vision.text.TextBlock;
 import com.google.android.gms.vision.text.TextRecognizer;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
+
+import java.io.FileOutputStream;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
 
 public class Second_activity extends AppCompatActivity {
     private static final int CAMERA_REQUEST_CODE=1;
@@ -49,6 +60,7 @@ public class Second_activity extends AppCompatActivity {
     String[] storagePermission;
     EditText mResult;
     ImageView mPreview;
+    private Button savePdf;
     Uri image_uri;
     private AdView mAdView;
     private InterstitialAd mInterstitialAd;
@@ -65,6 +77,7 @@ public class Second_activity extends AppCompatActivity {
             }
         });
         mAdView = findViewById(R.id.adView);
+        savePdf=findViewById(R.id.savePdf);
         AdRequest adRequest = new AdRequest.Builder()
 
                 .build();
@@ -81,12 +94,43 @@ public class Second_activity extends AppCompatActivity {
         cameraPermission=new String[]{Manifest.permission.CAMERA,Manifest.permission.WRITE_EXTERNAL_STORAGE};
         storagePermission=new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE};
         ActionBar actionBar= getSupportActionBar();
-        actionBar.setSubtitle("Click Image Button To Insert Image");
+        //actionBar.setSubtitle("Click Image Button To Insert Image");
+        savePdf.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                saveAsPdf();
+            }
+        });
 
 
 
 
     }
+    private void saveAsPdf() {
+        //Save Text as pdf
+
+        Document mDoc =new Document();
+        String fileName= new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(System.currentTimeMillis());
+        String filePath= Environment.getExternalStorageDirectory()+"/"+ fileName +".pdf";
+        try {
+            PdfWriter.getInstance(mDoc,new FileOutputStream(filePath));
+            mDoc.open();
+            String text=mResult.getText().toString().trim();
+            mDoc.add(new Paragraph(text));
+            Toast.makeText(getApplicationContext(),fileName+".pdf\n SAVED! to"+filePath,Toast.LENGTH_SHORT).show();
+
+
+            mDoc.close();
+
+        }
+        catch(Exception e)
+        {
+            Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
+
 
     //actionbarmenu
 

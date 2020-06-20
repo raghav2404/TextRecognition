@@ -10,7 +10,7 @@
         android:id="@+id/AddImage"
         android:title="Add image"
         app:showAsAction="always"
-        android:icon="@drawable/ic_image_icon" />
+        android:icon="@drawable/ic_photo_library_black_24dp" />
 
 
 

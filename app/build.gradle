@@ -37,5 +37,5 @@ dependencies {
     //image to text google library "Mobile Vision Api"
    implementation 'com.google.android.gms:play-services-vision:20.1.0'
     implementation 'com.google.android.gms:play-services-ads:19.1.0'
-
+    implementation 'com.itextpdf:itextg:5.5.10'
 }
