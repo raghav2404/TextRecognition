@@ -55,7 +55,6 @@ public class Second_activity extends AppCompatActivity {
     private static final int STORAGE_REQUEST_CODE=2;
     private static final int IMAGE_PICK_GALLERY_CODE=3;
     private static final int IMAGE_PICK_CAMERA_CODE=4;
-
     String[] cameraPermission;
     String[] storagePermission;
     EditText mResult;
@@ -302,6 +301,7 @@ public class Second_activity extends AppCompatActivity {
         if (resultCode == RESULT_OK)//GOT IMAGE
         {//GOT IMAGE FROM GALLERY NOW CROP IT
             if (requestCode == IMAGE_PICK_GALLERY_CODE) {
+                assert data != null;
                 CropImage.activity(data.getData()).setGuidelines(CropImageView.Guidelines.ON).start(this);
             }
             if (requestCode == IMAGE_PICK_CAMERA_CODE)//got image from CAMERA so now crop it
@@ -348,5 +348,29 @@ public class Second_activity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+
+        AlertDialog.Builder builder=new AlertDialog.Builder(Second_activity.this);
+        builder.setMessage("Do you want to Quit?");
+      //  builder.setCancelable(true);
+        //negative button
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.cancel();
+            }
+        });
+        //Positive Button
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                finish();
+            }
+        });
+        AlertDialog alertDialog=builder.create();
+        alertDialog.show();
+       // super.onBackPressed();
+    }
 }
 
