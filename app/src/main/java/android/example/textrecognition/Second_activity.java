@@ -57,6 +57,7 @@ public class Second_activity extends AppCompatActivity {
     private static final int IMAGE_PICK_CAMERA_CODE=4;
     String[] cameraPermission;
     String[] storagePermission;
+    //
     EditText mResult;
     ImageView mPreview;
     private Button savePdf;
