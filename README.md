@@ -53,4 +53,6 @@ DEMO
 
 ![demo2](https://user-images.githubusercontent.com/51928619/122733048-71255280-d29a-11eb-8c30-ae5eb1788eaf.jpeg)
 ![demo1](https://user-images.githubusercontent.com/51928619/122733071-76829d00-d29a-11eb-8157-b95d1d38b239.jpeg)
-[savedpdffromapp.pdf](https://github.com/raghav2404/TextRecognition/files/6685267/savedpdffromapp.pdf)
+![Screenshot (39)](https://user-images.githubusercontent.com/51928619/122733292-ab8eef80-d29a-11eb-9f15-ea60e8e0d769.png)
+![WhatsApp Image 2021-06-21 at 14 12 40 (1)](https://user-images.githubusercontent.com/51928619/122733501-dd07bb00-d29a-11eb-8db9-446ff30724a5.jpeg)
+
