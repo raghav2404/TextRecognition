@@ -49,3 +49,8 @@ Turkish.
 
 
 
+DEMO
+
+![demo2](https://user-images.githubusercontent.com/51928619/122733048-71255280-d29a-11eb-8c30-ae5eb1788eaf.jpeg)
+![demo1](https://user-images.githubusercontent.com/51928619/122733071-76829d00-d29a-11eb-8157-b95d1d38b239.jpeg)
+[savedpdffromapp.pdf](https://github.com/raghav2404/TextRecognition/files/6685267/savedpdffromapp.pdf)
